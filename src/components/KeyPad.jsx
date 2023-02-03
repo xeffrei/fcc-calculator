@@ -1,9 +1,12 @@
 import KeyPadButton from './KeyPadButton'
+import NumberPad from './NumberPad'
+import keyPadStyles from './KeyPad.module.css'
 
 const KeyPad = (props) => {
   return (
-    <div className='keypad'>
-      <div className='key-row'>
+    <div className={keyPadStyles.keypad}>
+      <NumberPad />
+      <div className={keyPadStyles.keyRow}>
         <KeyPadButton
           id='equals'
           value='='

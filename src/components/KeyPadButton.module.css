@@ -1,16 +1,27 @@
-.equals {
+.equals, .number {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #ccf;
-  color: hotpink;
+  
   font-size: 1.5em;
   font-weight: bold;
-  border: 1px solid yellow;
   border-radius: 5px;
-  max-width: 3rem;
-  min-width: 3rem;
-  max-height: 3rem;
-  min-height: 3rem;
+  max-width: 25vw;
+  min-width: 25vw;
+  max-height: 25vw;
+  min-height: 25vw;
+  margin-right: .3rem;
+}
+
+.equals {
+  background-color: yellow;
+  border: 2px solid #ccf;
+  color: hotpink;
+}
+
+.number {
+  background-color: #ccf;
+  color: hotpink;
+  border: 1px solid yellow;
 }
