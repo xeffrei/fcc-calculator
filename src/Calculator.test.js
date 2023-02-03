@@ -7,4 +7,10 @@ describe('Calculator', () => {
     const calculator = screen.getByTestId('calculator')
     expect(calculator.id).toBe('calculator')
   })
+
+  it('has an equals button', () => {
+    render(<Calculator />)
+    const equals = screen.getByText('=')
+    expect(equals.id).toBe('equals') 
+  })
 })
