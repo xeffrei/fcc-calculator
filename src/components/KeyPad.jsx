@@ -1,17 +1,13 @@
-import KeyPadButton from './KeyPadButton'
 import NumberPad from './NumberPad'
 import keyPadStyles from './KeyPad.module.css'
+import { getKeyPadButtons} from '../util/constants'
 
 const KeyPad = (props) => {
   return (
     <div className={keyPadStyles.keypad}>
       <NumberPad />
       <div className={keyPadStyles.keyRow}>
-        <KeyPadButton
-          id='equals'
-          value='='
-          type='equals'
-        />
+        {getKeyPadButtons()}
       </div>
     </div>
   )
