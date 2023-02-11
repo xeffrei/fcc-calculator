@@ -8,9 +8,16 @@ describe('Calculator', () => {
     expect(calculator.id).toBe('calculator')
   })
 
-  it('has an equals button', () => {
+  it('has a KeyPad component', () => {
     render(<Calculator />)
-    const equals = screen.getByText('=')
-    expect(equals.id).toBe('equals') 
+    const keypad = screen.getByTestId('keypad')
+    expect(keypad).toBeInTheDocument()
+  })
+
+  it('has a display', () => {
+    render(<Calculator />)
+    const display = screen.getByTestId('display')
+    expect(display).toBeInTheDocument()
+    expect(display.id).toBe('display')
   })
 })
