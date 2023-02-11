@@ -4,7 +4,10 @@ import keyPadStyles from './KeyPad.module.css'
 
 const NumberPad = (props) => {
   return (
-    <div className='number-pad'>
+    <div
+      className='number-pad'
+      data-testid='number-pad'
+    >
       {NumPadRows.map((row, i) => {
         return (
           <div
