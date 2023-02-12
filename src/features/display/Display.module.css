@@ -1,0 +1,26 @@
+.display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ccf;
+  color: hotpink;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  width: 80%;
+  margin: .5rem auto;
+}
+
+.inputdisplay, .outputdisplay {
+  width: 90%;
+  background-color: #282826;
+  padding: .5rem;
+  margin: .5rem auto;
+  border-radius: 5px;
+}
+
+.outputdisplay {
+  font-size: 1.5rem;
+  color: yellow;
+  text-align: right;
+}
