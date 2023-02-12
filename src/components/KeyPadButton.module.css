@@ -1,20 +1,19 @@
-.equals, .number, .function, .operator, .decimal {
+.equals, .number, .function, .operator, .decimal, .clear {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
   font-size: 1.5em;
   font-weight: bold;
   border-radius: 5px;
-  max-width: 25vh;
-  min-width: 25vh;
-  max-height: 25vh;
-  min-height: 25vh;
+  max-width: 10vh;
+  min-width: 10vh;
+  max-height: 10vh;
+  min-height: 10vh;
   margin-right: .3rem;
 }
 
-.equals {
+.equals, .function {
   background-color: yellow;
   border: 2px solid #ccf;
   color: hotpink;
@@ -26,7 +25,7 @@
   border: 1px solid yellow;
 }
 
-.function, .operator {
+.operator {
   background-color: #ccf;
   color: hotpink;
   border: 1px solid yellow;
