@@ -1,5 +1,5 @@
-import KeyPadButton from './KeyPadButton'
-import { NumberStringMap, NumPadRows } from '../util/constants'
+import KeyPadButton from '../../components/KeyPadButton'
+import { NumberStringMap, NumPadRows } from '../../util/constants'
 import keyPadStyles from './KeyPad.module.css'
 
 const NumberPad = (props) => {

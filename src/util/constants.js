@@ -1,4 +1,4 @@
-import KeyPadButton from "../components/KeyPadButton"
+import KeyPadButton from '../components/KeyPadButton'
 export const NumberStringMap = {
   0: 'zero',
   1: 'one',
@@ -14,24 +14,25 @@ export const NumberStringMap = {
 
 export const NumPadRows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]]
 
-export const KeyPadButtons = [
-  { id: 'clear', value: 'AC', type: 'function' },
-  { id: 'divide', value: '/', type: 'operator' },
-  { id: 'multiply', value: '*', type: 'operator' },
-  { id: 'subtract', value: '-', type: 'operator' },
-  { id: 'add', value: '+', type: 'operator' },
-  { id: 'equals', value: '=', type: 'equals' },
-  { id: 'decimal', value: '.', type: 'decimal' },
-]
-
-export const getNumPadButtons = () => {
-  return Object.keys(NumberStringMap).map(button => {
-    return (<KeyPadButton key={NumberStringMap[button]} id={NumberStringMap[button]} value={button} type='number' />)
-  })
+export const KeyPadButtons = {
+  clear: { id: 'clear', value: 'AC', type: 'function' },
+  divide: { id: 'divide', value: '/', type: 'operator' },
+  multiply: { id: 'multiply', value: '*', type: 'operator' },
+  subtract: { id: 'subtract', value: '-', type: 'operator' },
+  add: { id: 'add', value: '+', type: 'operator' },
+  equals: { id: 'equals', value: '=', type: 'equals' },
+  decimal: { id: 'decimal', value: '.', type: 'decimal' },
 }
 
-export const getKeyPadButtons = () => {
-  return KeyPadButtons.map(button => {
-    return (<KeyPadButton key={button.id} id={button.id} value={button.value} type={button.type} />)
+export const getNumPadButtons = () => {
+  return Object.keys(NumberStringMap).map((button) => {
+    return (
+      <KeyPadButton
+        key={NumberStringMap[button]}
+        id={NumberStringMap[button]}
+        value={button}
+        type='number'
+      />
+    )
   })
 }
