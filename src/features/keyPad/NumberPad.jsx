@@ -18,7 +18,9 @@ const NumberPad = (props) => {
               return (
                 <KeyPadButton
                   id={NumberStringMap[num]}
+                  data-testid={NumberStringMap[num]}
                   value={num}
+                  onClick={() => props.onClick(num)}
                   type='number'
                   key={j}
                 />

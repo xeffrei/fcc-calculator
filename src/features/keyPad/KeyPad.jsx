@@ -1,7 +1,7 @@
 import NumberPad from './NumberPad'
 import keyPadStyles from './KeyPad.module.css'
 import KeyPadButton from '../../components/KeyPadButton'
-import { clear } from '../display/displaySlice'
+import { clear, input } from '../display/displaySlice'
 import { useDispatch, Provider } from 'react-redux'
 import store from '../../app/store'
 import { KeyPadButtons } from '../../util/constants'
@@ -25,7 +25,7 @@ export const KeyPad = (props) => {
       <KeyPadButton {...get(KeyPadButtons, 'add')} />
       <KeyPadButton {...get(KeyPadButtons, 'equals')} />
       <KeyPadButton {...get(KeyPadButtons, 'decimal')} />
-      <NumberPad />
+      <NumberPad onClick={(num) => dispatch(input(num))} />
     </div>
   )
 }

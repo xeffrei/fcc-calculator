@@ -14,14 +14,14 @@ export function Display() {
       id='display-container'
     >
       <div
-        id='inputDisplay'
+        id='display'
         className={styles.inputdisplay}
         data-testid='input-display'
       >
         {inputValue}
       </div>
       <div
-        id='display'
+        id='outputdisplay'
         data-testid='output-display'
         className={styles.outputdisplay}
       >
