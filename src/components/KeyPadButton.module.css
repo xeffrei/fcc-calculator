@@ -1,4 +1,9 @@
-.equals, .number, .function, .operator, .decimal, .clear {
+.equals,
+.number,
+.function,
+.operator,
+.decimal,
+.clear {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,16 +15,18 @@
   min-width: 10vh;
   max-height: 10vh;
   min-height: 10vh;
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
-.equals, .function {
+.equals,
+.function {
   background-color: yellow;
   border: 2px solid #ccf;
   color: hotpink;
 }
 
-.number, .decimal {
+.number,
+.decimal {
   background-color: #ccf;
   color: hotpink;
   border: 1px solid yellow;

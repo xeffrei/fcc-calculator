@@ -8,14 +8,15 @@
   border: 1px solid yellow;
   border-radius: 5px;
   width: 80%;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
 }
 
-.inputdisplay, .outputdisplay {
+.inputdisplay,
+.outputdisplay {
   width: 90%;
   background-color: #282826;
-  padding: .5rem;
-  margin: .5rem auto;
+  padding: 0.5rem;
+  margin: 0.5rem auto;
   border-radius: 5px;
 }
 
