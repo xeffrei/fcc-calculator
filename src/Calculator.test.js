@@ -73,3 +73,26 @@ it('does not allow leading zeros', () => {
   userEvent.click(button1)
   expect(inputDisplay.textContent).toBe('1')
 })
+
+it('does not allow multiple decimal points', () => {
+  renderWithProviders(<Calculator />)
+  const inputDisplay = screen.getByTestId('input-display')
+  const decimalButton = screen.getByTestId('decimal')
+  const button1 = screen.getByTestId('one')
+  const clearButton = screen.getByTestId('clear')
+
+  userEvent.click(clearButton)
+  expect(inputDisplay.textContent).toBe('0')
+
+  userEvent.click(decimalButton)
+  expect(inputDisplay.textContent).toBe('0.')
+
+  userEvent.click(decimalButton)
+  expect(inputDisplay.textContent).toBe('0.')
+
+  userEvent.click(button1)
+  expect(inputDisplay.textContent).toBe('0.1')
+
+  userEvent.click(decimalButton)
+  expect(inputDisplay.textContent).toBe('0.1')
+})

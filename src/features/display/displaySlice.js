@@ -20,10 +20,17 @@ export const displaySlice = createSlice({
           ? '' + action.payload
           : '' + state.inputValue + action.payload
     },
+    inputDecimal: (state) => {
+      if (state.inputValue.includes('.')) {
+        return
+      } else {
+        state.inputValue = state.inputValue + '.'
+      }
+    },
   },
 })
 
-export const { clear, reset, input } = displaySlice.actions
+export const { clear, reset, input, inputDecimal } = displaySlice.actions
 export const selectDisplay = (state) => {
   return {
     inputValue: state.display.inputValue,
