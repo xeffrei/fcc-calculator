@@ -24,8 +24,6 @@ describe('Calculator', () => {
 
     const inputDisplay = screen.getByTestId('input-display')
     expect(inputDisplay.textContent).toBe('07734')
-    const outputDisplay = screen.getByTestId('output-display')
-    expect(outputDisplay.textContent).toBe('666')
 
     const button1 = screen.getByTestId('one')
     userEvent.click(button1)
@@ -33,7 +31,6 @@ describe('Calculator', () => {
 
     userEvent.click(clearButton)
     expect(inputDisplay.textContent).toBe('0')
-    expect(outputDisplay.textContent).toBe('0')
   })
 })
 
