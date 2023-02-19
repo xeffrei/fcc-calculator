@@ -12,8 +12,7 @@
   margin: 0.5rem auto;
 }
 
-.inputdisplay,
-.outputdisplay {
+.inputdisplay {
   width: 90%;
   background-color: #282826;
   padding: 0.5rem;
@@ -22,4 +21,5 @@
   font-size: 1.5rem;
   color: yellow;
   text-align: right;
+  overflow: scroll;
 }

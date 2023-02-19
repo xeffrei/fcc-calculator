@@ -9,7 +9,6 @@ export function renderWithProviders(
   {
     preloadedState = {
       display: {
-        outputValue: '666',
         inputValue: '88',
       },
     },
