@@ -1,8 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { evaluate as evalExpr } from 'mathjs'
+import { last } from 'lodash'
 
 const initialState = {
-  outputValue: '666',
-  inputValue: '07734',
+  inputValue: '0',
+}
+
+const operatorRegex = /([+\-*/])/g
+
+const tokenize = (inputValue) => {
+  const tokens = []
+  const regex = /(-?\d+\.?\d*)|([+\-*/])/g
+  let match
+  while ((match = regex.exec(inputValue))) {
+    tokens.push(match[0])
+  }
+  return tokens
 }
 
 export const displaySlice = createSlice({
@@ -10,7 +23,6 @@ export const displaySlice = createSlice({
   initialState: initialState,
   reducers: {
     clear: (state) => {
-      state.outputValue = '0'
       state.inputValue = '0'
     },
     reset: (state) => initialState,
@@ -21,20 +33,47 @@ export const displaySlice = createSlice({
           : '' + state.inputValue + action.payload
     },
     inputDecimal: (state) => {
-      if (state.inputValue.includes('.')) {
+      const tokens = tokenize(state.inputValue)
+      const lastToken = last(tokens)
+      if (lastToken.includes('.')) {
         return
       } else {
         state.inputValue = state.inputValue + '.'
       }
     },
+    inputOperator: (state, action) => {
+      const tokens = tokenize(state.inputValue)
+      const lastToken = last(tokens)
+      const penultimateToken = tokens[tokens.length - 2]
+      if (
+        (lastToken === '*' && lastToken !== '-') ||
+        ((lastToken === '/' || lastToken === '+') && lastToken !== '-')
+      ) {
+        state.inputValue =
+          action.payload === '-'
+            ? state.inputValue + action.payload
+            : state.inputValue.slice(0, -1) + action.payload
+      } else if (lastToken === '-' && penultimateToken.match(operatorRegex)) {
+        state.inputValue =
+          action.payload === '-'
+            ? state.inputValue + action.payload
+            : state.inputValue.slice(0, -2) + action.payload
+      } else {
+        state.inputValue = state.inputValue + action.payload
+      }
+    },
+    evaluate: (state) => {
+      // eslint-disable-next-line no-eval
+      state.inputValue = evalExpr(state.inputValue) + ''
+    },
   },
 })
 
-export const { clear, reset, input, inputDecimal } = displaySlice.actions
+export const { clear, reset, input, inputDecimal, evaluate, inputOperator } =
+  displaySlice.actions
 export const selectDisplay = (state) => {
   return {
     inputValue: state.display.inputValue,
-    outputValue: state.display.outputValue,
   }
 }
 export default displaySlice.reducer

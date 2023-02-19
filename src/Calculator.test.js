@@ -23,11 +23,11 @@ describe('Calculator', () => {
     expect(clearButton).toBeInTheDocument()
 
     const inputDisplay = screen.getByTestId('input-display')
-    expect(inputDisplay.textContent).toBe('07734')
+    expect(inputDisplay.textContent).toBe('0')
 
     const button1 = screen.getByTestId('one')
     userEvent.click(button1)
-    expect(inputDisplay.textContent).toBe('077341')
+    expect(inputDisplay.textContent).toBe('1')
 
     userEvent.click(clearButton)
     expect(inputDisplay.textContent).toBe('0')
