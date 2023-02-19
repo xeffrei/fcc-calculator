@@ -14,21 +14,21 @@ export const KeyPad = (props) => {
     <div
       className={keyPadStyles.keypad}
       data-testid='keypad'
-    >
+      >
       <KeyPadButton
         {...get(KeyPadButtons, 'clear')}
         onClick={() => dispatch(clear())}
+      />
+      <NumberPad onClick={(num) => dispatch(input(num))} />
+      <KeyPadButton
+        {...get(KeyPadButtons, 'decimal')}
+        onClick={() => dispatch(inputDecimal())}
       />
       <KeyPadButton {...get(KeyPadButtons, 'multiply')} />
       <KeyPadButton {...get(KeyPadButtons, 'divide')} />
       <KeyPadButton {...get(KeyPadButtons, 'subtract')} />
       <KeyPadButton {...get(KeyPadButtons, 'add')} />
       <KeyPadButton {...get(KeyPadButtons, 'equals')} />
-      <KeyPadButton
-        {...get(KeyPadButtons, 'decimal')}
-        onClick={() => dispatch(inputDecimal())}
-      />
-      <NumberPad onClick={(num) => dispatch(input(num))} />
     </div>
   )
 }

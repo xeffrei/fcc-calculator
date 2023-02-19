@@ -6,7 +6,7 @@ import store from '../../app/store'
 import styles from './Display.module.css'
 
 export function Display() {
-  const { inputValue, outputValue } = useSelector(selectDisplay)
+  const { inputValue } = useSelector(selectDisplay)
   return (
     <div
       className={styles.display}
@@ -19,13 +19,6 @@ export function Display() {
         data-testid='input-display'
       >
         {inputValue}
-      </div>
-      <div
-        id='outputdisplay'
-        data-testid='output-display'
-        className={styles.outputdisplay}
-      >
-        {outputValue}
       </div>
     </div>
   )

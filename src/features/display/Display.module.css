@@ -7,7 +7,8 @@
   color: hotpink;
   border: 1px solid yellow;
   border-radius: 5px;
-  width: 80%;
+  width: 50vh;
+  min-width: 50vh;
   margin: 0.5rem auto;
 }
 
@@ -18,9 +19,6 @@
   padding: 0.5rem;
   margin: 0.5rem auto;
   border-radius: 5px;
-}
-
-.outputdisplay {
   font-size: 1.5rem;
   color: yellow;
   text-align: right;
