@@ -9,7 +9,6 @@ const Calculator = () => {
       id='calculator'
       data-testid='calculator'
     >
-      <code>some day I will be a calculator</code>
       <Display />
       <KeyPad />
     </div>

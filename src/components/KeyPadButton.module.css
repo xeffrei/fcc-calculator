@@ -1,9 +1,7 @@
-.equals,
 .number,
 .function,
 .operator,
-.decimal,
-.clear {
+.decimal {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +13,29 @@
   min-width: 10vh;
   max-height: 10vh;
   min-height: 10vh;
-  margin-right: 0.3rem;
+  margin: 0.1em;
+  /* margin-right: 0.3rem; */
 }
 
 .equals,
+.clear,
+.multiply {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 5px;
+  max-width: calc(20vh + 0.3em);
+  min-width: calc(20vh + 0.3em);
+  max-height: 10vh;
+  min-height: 10vh;
+  margin: 0.1em;
+}
+
+.equals,
+.clear,
 .function {
   background-color: yellow;
   border: 2px solid #ccf;
@@ -26,14 +43,15 @@
 }
 
 .number,
+.multiply,
 .decimal {
   background-color: #ccf;
   color: hotpink;
-  border: 1px solid yellow;
+  border: 2px solid yellow;
 }
 
 .operator {
   background-color: #ccf;
   color: hotpink;
-  border: 1px solid yellow;
+  border: 2px solid yellow;
 }

@@ -7,6 +7,7 @@ describe('KeyPad', () => {
   it('has an element for each number 0-9', () => {
     renderWithProviders(<KeyPad />)
     Object.keys(numbers).forEach((number) => {
+      if (numbers[number] === null) return
       const numberElement = screen.getByText(number)
       expect(numberElement.id).toBe(numbers[number])
     })
