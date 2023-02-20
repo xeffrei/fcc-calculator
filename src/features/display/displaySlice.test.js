@@ -36,6 +36,28 @@ describe('inputDecimal', () => {
     state = reducer(state, { type: 'display/input', payload: '1' })
     expect(state).toEqual({ inputValue: '7734.11' })
   })
+
+  test('when there is an operator before the last number token, should not add a decimal', () => {
+    let state = { inputValue: '0.2' }
+    state = reducer(state, { type: 'display/inputOperator', payload: '+' })
+    state = reducer(state, { type: 'display/inputDecimal' })
+    state = reducer(state, { type: 'display/input', payload: '2' })
+    state = reducer(state, { type: 'display/inputDecimal' })
+
+    expect(state).toEqual({ inputValue: '0.2+0.2' })
+  })
+
+  test('should not add a leading zero after a negative number', () => {
+    let state = { inputValue: '10.5-5' }
+    state = reducer(state, { type: 'display/inputDecimal' })
+    state = reducer(state, { type: 'display/input', payload: '5' })
+
+    expect(state).toEqual({ inputValue: '10.5-5.5' })
+
+    state = reducer(state, { type: 'display/evaluate' })
+
+    expect(state).toEqual({ inputValue: '5' })
+  })
 })
 
 describe('minus sign behavior', () => {

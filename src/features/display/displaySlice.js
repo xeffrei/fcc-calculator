@@ -6,7 +6,7 @@ const initialState = {
   inputValue: '0',
 }
 
-const operatorRegex = /([+\-*/])/g
+const operatorRegex = /(^[+\-*/]$)/g
 
 const tokenize = (inputValue) => {
   const tokens = []
@@ -22,10 +22,7 @@ export const displaySlice = createSlice({
   name: 'display',
   initialState: initialState,
   reducers: {
-    clear: (state) => {
-      state.inputValue = '0'
-    },
-    reset: (state) => initialState,
+    clear: (state) => initialState,
     input: (state, action) => {
       state.inputValue =
         state.inputValue === '0'
@@ -37,6 +34,8 @@ export const displaySlice = createSlice({
       const lastToken = last(tokens)
       if (lastToken.includes('.')) {
         return
+      } else if (lastToken.match(operatorRegex) || !lastToken) {
+        state.inputValue = state.inputValue + '0.'
       } else {
         state.inputValue = state.inputValue + '.'
       }
@@ -45,10 +44,7 @@ export const displaySlice = createSlice({
       const tokens = tokenize(state.inputValue)
       const lastToken = last(tokens)
       const penultimateToken = tokens[tokens.length - 2]
-      if (
-        (lastToken === '*' && lastToken !== '-') ||
-        ((lastToken === '/' || lastToken === '+') && lastToken !== '-')
-      ) {
+      if (lastToken.match(operatorRegex) && lastToken !== '-') {
         state.inputValue =
           action.payload === '-'
             ? state.inputValue + action.payload
@@ -63,13 +59,12 @@ export const displaySlice = createSlice({
       }
     },
     evaluate: (state) => {
-      // eslint-disable-next-line no-eval
       state.inputValue = evalExpr(state.inputValue) + ''
     },
   },
 })
 
-export const { clear, reset, input, inputDecimal, evaluate, inputOperator } =
+export const { clear, input, inputDecimal, evaluate, inputOperator } =
   displaySlice.actions
 export const selectDisplay = (state) => {
   return {
